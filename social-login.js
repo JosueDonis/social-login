@@ -69,7 +69,6 @@ const getUser = async ({ social, ...query }) => {
         const getToken = await getAccessTokenFromCode({ social, ...query, })
         if (social === 'google') return { token: getToken, ...await googleUser(getToken), }
         if (social === 'facebook') return { token: getToken, ...await facebookUser(getToken) }
-        if (social === 'apple') return { ...await getAppleUser(query) }
         return null
     } catch (error) {
         return error
